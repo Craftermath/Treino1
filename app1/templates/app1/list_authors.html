@@ -1,0 +1,18 @@
+<h1>Lista de Autores</h1>
+
+<ul style="color:{{ color }}">
+    {% for author in authors %}
+        <li>
+            {{ author.id }}{{ author.name }} /{{ author.age }} /
+            <a href="/author/detail/{{ author.id }}/">editar</a>
+        </li>
+    {% endfor %}
+
+</ul>
+
+<form action="." method="POST">
+    {% csrf_token %}
+    <input type="text" name="variavel_1"/>
+    <input type="number" name="variavel_2"/>
+    <input type="submit" value="Save">
+</form>

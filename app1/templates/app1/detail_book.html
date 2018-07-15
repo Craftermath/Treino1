@@ -1,0 +1,15 @@
+<!--Detalhes dos Titulos-->
+<h1>Book {{ titulo_novo.title }} </h1>
+
+<form action="." method="POST">
+    {% csrf_token %}
+    Novo título:
+    <input type="text" name="titulo_novo"/>
+    Editora:
+    <select name="pub">
+        {% for pub in publishers %}
+            <option value="{{ pub.id }}">{{ pub.name }}</option>
+        {% endfor %}
+    </select>
+    <input type="submit" value="save"/>
+</form>

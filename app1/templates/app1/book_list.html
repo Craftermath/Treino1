@@ -1,0 +1,24 @@
+<!--Titulos-->
+<h1>Lista de Livros</h1>
+
+{% for b in book %}
+    <p>
+        {{ b.title }} / {{ b.author }} ({{ b.author.id }}) / {{ b.publisher.name }}
+    </p>
+{% endfor %}
+
+<form action="." method="POST">
+    {% csrf_token %}
+    <input type="text" name="title"/>
+    <select name="author">
+        {% for author in authors %}
+            <option value="{{ author.id }}">{{ author.name }}</option>
+        {% endfor %}
+    </select>
+    <select name="publisher">
+        {% for pub in publishers %}
+            <option value="{{ pub.id }}">{{ pub.name }}</option>
+        {% endfor %}
+    </select>
+    <input type="submit" value="save"/>
+</form>
